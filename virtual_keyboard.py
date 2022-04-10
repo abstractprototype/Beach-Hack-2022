@@ -102,7 +102,7 @@ while True:
 
     # img = mybutton.draw(img)
     elif(inProgress == False):
-        time = 500
+        time = 200
         cv2.putText(img,'GAME WILL START IN --> ' + str(time - counter),(200,50),cv2.FONT_HERSHEY_SIMPLEX,1,(0,0,255),3,cv2.LINE_AA)
         counter = counter + 1
         if counter > time:
