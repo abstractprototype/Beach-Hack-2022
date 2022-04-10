@@ -5,7 +5,6 @@ from cvzone.HandTrackingModule import HandDetector
 from time import sleep
 import numpy as np
 import random
-import random
 
 # from pynput.keyboard import Controller
 
@@ -93,8 +92,8 @@ while True:
                                 cv2.FONT_HERSHEY_PLAIN, 4, (0, 0, 0), 4)
                     # final_text += button.text
                     #sleep(0.5)
-                num = random.randint(0,len(buttonList)-1)
-                buttonList.append(Button([100 * num + 25, 100 * int(num%2) + 50], key))
+                    num = random.randint(0,len(buttonList)-1)
+                    buttonList.append(Button([100 * num + 25, 100 * int(num%2) + 50], key))
 
 
 
