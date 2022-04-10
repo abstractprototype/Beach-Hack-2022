@@ -124,7 +124,7 @@ while isOver == False:
                     if l < 25:
                         # keyboard.press(button.text)
                         score += 1
-
+                
                         playsound('coin.wav')
 
                         buttonList.remove(button)
