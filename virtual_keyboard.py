@@ -5,7 +5,10 @@ import mediapipe
 from cvzone.HandTrackingModule import HandDetector
 from time import sleep
 import numpy as np
+import random 
 # from pynput.keyboard import Controller
+
+
 
 cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 cap.set(3, 1280)
@@ -20,7 +23,6 @@ counter = 0
 keyboard_keys = [["o"]]
 
 # keyboard = Controller()
-
 
 def transparent_layout(img, buttonList):
     imgNew = np.zeros_like(img, np.uint8)
@@ -59,13 +61,12 @@ while True:
     lmList, bboxInfo = detector.findPosition(img)
     img = transparent_layout(img, buttonList)
 
+
     if inProgress == True:
         if(isOver == False):
             cv2.putText(img,'SCORE: ' + str(score),(50,50),cv2.FONT_HERSHEY_SIMPLEX,1,(0,255,0),2,cv2.LINE_AA)
         elif(isOver == True):
-            cv2.putText(img,'<- GAME OVER ->',(320,350),cv2.FONT_HERSHEY_SIMPLEX,1,(0,0,255),5,cv2.LINE_AA)
-        
-        # change the draw funtion to transparent_layout for transparent keys
+            cv2.putText(img,' GAME OVER ',(320,350),cv2.FONT_HERSHEY_SIMPLEX,1,(0,0,255),5,cv2.LINE_AA)
 
         if lmList:
             for button in buttonList:
@@ -90,19 +91,8 @@ while True:
                         # final_text += button.text
                         sleep(0.20)
 
-    # cv2.rectangle(img, (25,350), (700, 450),
-    #               (255, 255, 255), cv2.FILLED)
-    # cv2.putText(img, final_text, (60, 425),
-    #             cv2.FONT_HERSHEY_PLAIN, 4, (0, 0, 0), 4)
-
-    # cv2.rectangle(img, (100,100), (200,200),
-    #               (100, 255, 0), cv2.FILLED)
-    # cv2.putText(img, 'Q', (120,180), cv2.FONT_HERSHEY_PLAIN, 5,
-    #             (0, 0, 0), 5)
-
-    # img = mybutton.draw(img)
     elif(inProgress == False):
-        time = 200
+        time = 150
         cv2.putText(img,'GAME WILL START IN --> ' + str(time - counter),(200,50),cv2.FONT_HERSHEY_SIMPLEX,1,(0,0,255),3,cv2.LINE_AA)
         counter = counter + 1
         if counter > time:
