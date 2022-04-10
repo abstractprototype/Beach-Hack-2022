@@ -57,6 +57,7 @@ isOver = False
 num = 0
 while True:
     success, img = cap.read()
+    img = cv2.flip(img, 1)
     img = detector.findHands(img)
     lmList, bboxInfo = detector.findPosition(img)
 
@@ -86,14 +87,15 @@ while True:
                 if l < 25:
                     # keyboard.press(button.text)
                     score += 1
-
                     cv2.rectangle(img, button.pos, (x + w, y + h),
                                   (0, 255, 0), cv2.FILLED)
                     cv2.putText(img, button.text, (x + 20, y + 65),
                                 cv2.FONT_HERSHEY_PLAIN, 4, (0, 0, 0), 4)
                     # final_text += button.text
                     #sleep(0.5)
-                    num = random.randint(0,len(buttonList)-1)
+                num = random.randint(0,len(buttonList)-1)
+                buttonList.append(Button([100 * num + 25, 100 * int(num%2) + 50], key))
+
 
 
     elif (inProgress == False):
