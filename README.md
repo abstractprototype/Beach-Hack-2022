@@ -1,2 +1,2 @@
 # Beach-Hack-2022
-Virtual Keyboard
+Coin catcher game
