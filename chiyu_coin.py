@@ -81,7 +81,7 @@ while isOver == False:
     if inProgress == True:
         if(duration == 0 and inProgress == True):
             duration = 300
-        cv2.putText(img, 'Timer: ' + str(duration - durCount), (350, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 3, cv2.LINE_AA)
+        cv2.putText(img, 'Timer: ' + str(duration - durCount), (500, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 3, cv2.LINE_AA)
         durCount = durCount + 1
         if durCount > duration:
             isOver = True
@@ -95,11 +95,11 @@ while isOver == False:
             center = ((button.pos[0] + button.size[0]) - 43, (button.pos[1] + button.size[0]) - 43)
         
             if (isOver == False):
-                cv2.putText(img, 'Your Bitcoin: ' + str(score), (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
+                cv2.putText(img, 'Your Chiyu Coins: ' + str(score), (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 255), 2, cv2.LINE_AA)
 
             elif (isOver == True):
-                cv2.putText(img, 'Your Bitcoin: ' + str(score), (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
-                cv2.putText(img, ' GAME OVER ', (320, 350), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 5, cv2.LINE_AA)
+                cv2.putText(img, 'Your Chiyu Coins: ' + str(score), (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 255), 2, cv2.LINE_AA)
+                cv2.putText(img, ' GAME OVER ', (520, 360), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 5, cv2.LINE_AA)
 
             x, y = button.pos
             w, h = button.size
@@ -140,8 +140,8 @@ while isOver == False:
 
     elif (inProgress == False):
         time = 30
-        cv2.putText(img, 'GAME WILL START IN --> ' + str(time - counter) + " Grab as many Bitcoin as you can!!!", (200, 50), cv2.FONT_HERSHEY_SIMPLEX, 1,
-                    (0, 0, 255), 3, cv2.LINE_AA)
+        cv2.putText(img, 'Game will start in: ' + str(time - counter) + " Grab as many Bitcoin as you can!!!", (200, 50), cv2.FONT_HERSHEY_SIMPLEX, 1,
+                    (0, 0, 0), 3, cv2.LINE_AA)
         counter = counter + 1
         if counter > time:
             inProgress = True
